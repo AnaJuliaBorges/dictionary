@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --background: #ffffff;
@@ -37,6 +38,9 @@
   --default-font-family: var(--font-sans);
   --default-mono-font-family: var(--font-mono);
   --default-serif-font-family: var(--font-serif);
+
+  --shadow-select: box-shadow: 1px 6px 29px -9px rgba(0,0,0,0.75);
+
 }
 
 @theme inline {
