@@ -1,21 +1,14 @@
-import { useState } from "react"
+import { useTheme } from "../../contexts/ThemeProvider"
 
 export const ThemeToggle = () => {
-  const [isDark, setIsDark] = useState(false)
+  const {theme, setTheme} = useTheme()
+  let isDark = theme === 'dark'
 
   const handleToggleTheme = () => {
     document.getElementById('toggle-theme').click()
-    setIsDark(!isDark)
-
-    console.log(isDark)
-
-    isDark
-      ? document.documentElement.classList.remove('dark')
-      : document.documentElement.classList.add('dark') 
-
-    localStorage.setItem('isDark', isDark)
+    let newTheme = theme === 'dark' ? 'light' : 'dark'
+    setTheme(newTheme)
   }
-
 
   return (
     <button type='button' className="relative inline-flex items-center cursor-pointer gap-5" onClick={handleToggleTheme}>
