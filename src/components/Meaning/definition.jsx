@@ -11,7 +11,7 @@ export const Definition = ({partOfSpeech, definitions, synonyms}) => {
       <h3 className='text-S text-neutral-200 mb-6'>Meaning</h3>
       <ul className='list-disc marker:text-primary pl-10'>
         {definitions.map((definition, index) => (
-          <li id={index} className="text-body-M font-light">{definition.definition}</li>
+          <li id={index} className="text-body-M font-light mb-3">{definition.definition}</li>
         ))}
       </ul>
       {synonyms.length > 0 && (
