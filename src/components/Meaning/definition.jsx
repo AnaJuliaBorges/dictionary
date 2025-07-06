@@ -1,0 +1,27 @@
+export const Definition = ({partOfSpeech, definitions, synonyms}) => {
+
+  console.log(partOfSpeech, synonyms, synonyms.length)
+
+  return (
+    <div className='w-full flex flex-col'>
+      <div className='w-full flex gap-5 mb-8 items-center mt-10'>
+        <h2 className='text-M font-bold italic'>{partOfSpeech}</h2>
+        <div className='flex-1 w-full border-neutral-100 dark:border-neutral-300 border-b' />
+      </div>
+      <h3 className='text-S text-neutral-200 mb-6'>Meaning</h3>
+      <ul className='list-disc marker:text-primary pl-10'>
+        {definitions.map((definition, index) => (
+          <li id={index} className="text-body-M font-light">{definition.definition}</li>
+        ))}
+      </ul>
+      {synonyms.length > 0 && (
+        <div className='flex gap-5 mt-10'>
+          <h3 className='text-S text-neutral-200'>Synonyms</h3>
+          {synonyms.map((synonym) => (
+            <span className='text-S text-primary hover:underline font-bold cursor-pointer' id={synonym}>{synonym}</span>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
