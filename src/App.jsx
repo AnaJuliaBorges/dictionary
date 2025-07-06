@@ -9,8 +9,8 @@ function App() {
   const [result, setResult] = useState([])
 
   return (
-    <div className="flex items-center justify-items-center justify-center mt-12">
-      <main className="flex flex-col gap-12 items-center w-lvh md:px-10 max-w-[737px]">
+    <div className="flex items-center justify-items-center justify-center mt-12 mx-5">
+      <main className="flex flex-col gap-12 items-center w-lvh sm:mx-10 max-w-[800px]">
 
         <Header />
         <SearchInput setResult={setResult} setStatusError={setStatusError}/>
