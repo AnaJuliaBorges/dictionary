@@ -15,7 +15,7 @@ export const Definition = ({partOfSpeech, definitions, synonyms}) => {
         ))}
       </ul>
       {synonyms.length > 0 && (
-        <div className='flex gap-5 mt-10'>
+        <div className='flex gap-5 mt-10 flex-wrap'>
           <h3 className='text-S text-neutral-200'>Synonyms</h3>
           {synonyms.map((synonym) => (
             <span className='text-S text-primary hover:underline font-bold cursor-pointer' id={synonym}>{synonym}</span>
