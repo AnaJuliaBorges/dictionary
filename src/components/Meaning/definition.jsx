@@ -1,7 +1,5 @@
 export const Definition = ({partOfSpeech, definitions, synonyms}) => {
 
-  console.log(partOfSpeech, synonyms, synonyms.length)
-
   return (
     <div className='w-full flex flex-col'>
       <div className='w-full flex gap-5 mb-8 items-center mt-10'>
@@ -11,14 +9,14 @@ export const Definition = ({partOfSpeech, definitions, synonyms}) => {
       <h3 className='text-S text-neutral-200 mb-6'>Meaning</h3>
       <ul className='list-disc marker:text-primary pl-10'>
         {definitions.map((definition, index) => (
-          <li id={index} className="text-body-M font-light mb-3">{definition.definition}</li>
+          <li key={index} className="text-body-M font-light mb-3">{definition.definition}</li>
         ))}
       </ul>
       {synonyms.length > 0 && (
         <div className='flex gap-5 mt-10 flex-wrap'>
           <h3 className='text-S text-neutral-200'>Synonyms</h3>
-          {synonyms.map((synonym) => (
-            <span className='text-S text-primary hover:underline font-bold cursor-pointer' id={synonym}>{synonym}</span>
+          {synonyms.map((synonym, index) => (
+            <span className='text-S text-primary hover:underline font-bold cursor-pointer' key={index}>{synonym}</span>
           ))}
         </div>
       )}

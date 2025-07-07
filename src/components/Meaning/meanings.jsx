@@ -7,8 +7,9 @@ export const Meanings = ({result}) => {
   return (
     <div className='w-full'>
       <Title word={result.word} phonetics={result.phonetics[1].text} audio={result.phonetics[1].audio}/>
-      {result.meanings.map((meaning) => (
+      {result.meanings.map((meaning, index) => (
         <Definition 
+          key={index}
           partOfSpeech={meaning.partOfSpeech}
           definitions={meaning.definitions}
           synonyms={meaning.synonyms}
