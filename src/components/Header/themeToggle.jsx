@@ -1,7 +1,8 @@
-import { useTheme } from "../../contexts/ThemeProvider"
+import { useContext } from "react"
+import { ThemeContext } from "../../contexts/ThemeProvider"
 
 export const ThemeToggle = () => {
-  const {theme, setTheme} = useTheme()
+  const {theme, setTheme} = useContext(ThemeContext)
   let isDark = theme === 'dark'
 
   const handleToggleTheme = () => {
