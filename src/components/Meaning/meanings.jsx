@@ -3,10 +3,12 @@ import { Definition } from './definition'
 import { Title } from './title'
 
 export const Meanings = ({result}) => {
-  console.log(result.meanings)
+  const phonetic = result.phonetic || result.phonetics[1]?.text
+
+
   return (
     <div className='w-full'>
-      <Title word={result.word} phonetics={result.phonetics[1].text} audio={result.phonetics[1].audio}/>
+      <Title word={result.word} phonetics={phonetic} audio={result.phonetics[1]?.audio}/>
       {result.meanings.map((meaning, index) => (
         <Definition 
           key={index}
