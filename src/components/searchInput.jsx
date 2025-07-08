@@ -9,8 +9,6 @@ export const SearchInput = ({setResult, setStatusError}) => {
   const [isEmpty, setIsEmpty] = useState(false)
 
   const fetchResults = async () => {
-    console.log("Entrou aqui")
-
       if (!searchTerm.trim()) {
         document.getElementById('search').classList.remove('dark:border-primary')
         document.getElementById('search').classList.add('border', 'border-error', 'dark:border-error' )

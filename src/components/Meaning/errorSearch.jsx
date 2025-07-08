@@ -1,7 +1,6 @@
 import React from 'react'
 
 export const ErrorSearch = (status) => {
-  console.log(status.status)
   return (
     <div className='w-full flex flex-col items-center justify-center mt-32'>
       <p className='text-L mb-9'>😟</p>
