@@ -1,4 +1,18 @@
+import { useContext } from "react"
+import { DictionaryApiContext } from "../../contexts/dictionaryApiProvider"
+
 export const Definition = ({type, definitions, synonyms}) => {
+
+  const {fetchApi} = useContext(DictionaryApiContext)
+
+  const handleSynonym = (synonym) => {
+     window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+    
+    fetchApi(synonym)
+  }
 
   return (
     <div className='w-full flex flex-col'>
@@ -22,7 +36,7 @@ export const Definition = ({type, definitions, synonyms}) => {
         <div className='flex gap-5 mt-10 flex-wrap'>
           <h3 className='text-S text-neutral-200'>Synonyms</h3>
           {synonyms.map((synonym, index) => (
-            <span className='text-S text-primary hover:underline font-bold cursor-pointer' key={index}>{synonym}</span>
+            <button onClick={() => handleSynonym(synonym)} className='text-S text-primary hover:underline font-bold cursor-pointer' key={index}>{synonym}</button>
           ))}
         </div>
       )}
