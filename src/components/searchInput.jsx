@@ -39,7 +39,7 @@ export const SearchInput = () => {
           value={searchTerm}
           onKeyDown={handleKeyDown}
           placeholder='Search a word' 
-          className="w-full px-6 py-5 rounded-2xl font-bold bg-neutral-50 dark:bg-neutral-500 dark:border dark:border-primary focus:outline-none" 
+          className="w-full px-6 py-5 rounded-2xl font-bold bg-neutral-50 dark:bg-neutral-500 focus:outline focus:outline-primary caret-primary" 
           onChange={(event) => setSearchTerm(event.target.value)}
         />
         
