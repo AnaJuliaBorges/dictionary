@@ -1,9 +1,9 @@
-export const Definition = ({partOfSpeech, definitions, synonyms}) => {
+export const Definition = ({type, definitions, synonyms}) => {
 
   return (
     <div className='w-full flex flex-col'>
       <div className='w-full flex gap-5 mb-8 items-center mt-10'>
-        <h2 className='text-M font-bold italic'>{partOfSpeech}</h2>
+        <h2 className='text-M font-bold italic'>{type}</h2>
         <div className='flex-1 w-full border-neutral-100 dark:border-neutral-300 border-b' />
       </div>
       <h3 className='text-S text-neutral-200 mb-6'>Meaning</h3>

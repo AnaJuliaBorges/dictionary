@@ -1,39 +1,23 @@
 import { useState } from "react";
 import { SearchLoupe } from "../assets/searchLoupe"
-import axios from "axios";
 import { LoadingSpinner } from "./Meaning/loadingSpinner";
+import { addStyleInputError, removeStyleInputError } from "../utils/domManipulation";
 
-export const SearchInput = ({setResult, setStatusError}) => {
+export const SearchInput = ({fetchApi, isLoading}) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
   const [isEmpty, setIsEmpty] = useState(false)
 
   const fetchResults = async () => {
       if (!searchTerm.trim()) {
-        document.getElementById('search').classList.remove('dark:border-primary')
-        document.getElementById('search').classList.add('border', 'border-error', 'dark:border-error' )
+        addStyleInputError()
         setIsEmpty(true);
         return;
       }
-
-      document.getElementById('search').classList.remove('border', 'border-error', 'dark:border-error' )
-      document.getElementById('search').classList.add('dark:border-primary')
+      
+      removeStyleInputError()
       setIsEmpty(false)
 
-      setIsLoading(true);
-      setStatusError(0);
-      
-      try {
-        const response = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${searchTerm}`);
-        setResult(response.data);
-      } catch (err) {
-        if (!axios.isCancel(err)) {
-          setStatusError(err.status);
-          console.error('Search error:', err);
-        }
-      } finally {
-        setIsLoading(false);
-      }
+      fetchApi(searchTerm)
     };
 
   const handleKeyDown = (e) => {

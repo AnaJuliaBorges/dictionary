@@ -2,17 +2,15 @@ import { ExternalLinkIcon } from '../../assets/externalLinkIcon'
 import { Definition } from './definition'
 import { Title } from './title'
 
-export const Meanings = ({result}) => {
-  const phonetic = result.phonetic || result.phonetics[1]?.text
-
+export const Meanings = ({response}) => {
 
   return (
     <div className='w-full'>
-      <Title word={result.word} phonetics={phonetic} audio={result.phonetics[1]?.audio}/>
-      {result.meanings.map((meaning, index) => (
+      <Title word={response.word} phonetic={response.phonetic.sound} audio={response.phonetic.audio}/>
+      {response.meanings.map((meaning, index) => (
         <Definition 
           key={index}
-          partOfSpeech={meaning.partOfSpeech}
+          type={meaning.type}
           definitions={meaning.definitions}
           synonyms={meaning.synonyms}
         />
@@ -20,9 +18,13 @@ export const Meanings = ({result}) => {
       <div className='mb-[124px]'>
         <div className='flex-1 w-full border-neutral-100 dark:border-neutral-300 border-b mt-10 mb-5' />
         <div className='flex items-center'>
-          <span className='text-body-S text-neutral-200 mr-5 underline'>Source</span>
-          <a href={result.sourceUrls[0]} className='mr-2 underline'>{result.sourceUrls[0]}</a>
-          <ExternalLinkIcon />
+          <span className='text-body-S text-neutral-200 mr-6'>Source(s)</span>
+          {response.sources.map((source, index) => (
+              <a key={index} href={source} target="_blank" className='mr-4 flex items-center underline gap-2'>
+                {source}
+                <ExternalLinkIcon />
+              </a>
+          ))}
         </div>
       </div>
     </div>
