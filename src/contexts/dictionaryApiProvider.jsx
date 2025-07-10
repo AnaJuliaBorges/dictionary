@@ -1,7 +1,9 @@
 import axios from "axios";
-import { useState } from "react"
+import { createContext, useState } from "react"
 
-export function useDictionaryAPI() {
+const DictionaryApiContext = createContext();
+
+function DictionaryApiProvider({children}) {
   const [statusError, setStatusError] = useState(0)
   const [response, setResponse] = useState(null)
   const [isLoading, setIsLoading] = useState(false);
@@ -78,6 +80,7 @@ export function useDictionaryAPI() {
   }
 
   const fetchApi = async (word) => {
+    console.log(word)
     setIsLoading(true)
     try {
       const responseApi = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
@@ -97,12 +100,19 @@ export function useDictionaryAPI() {
     }
   }
 
- 
-  return {
+  const value = {
     statusError,
     setStatusError,
     response,
     isLoading,
     fetchApi
   }
+
+  return (
+    <DictionaryApiContext.Provider value={value}>
+      {children}
+    </DictionaryApiContext.Provider>
+  )
 }
+
+export { DictionaryApiContext, DictionaryApiProvider }

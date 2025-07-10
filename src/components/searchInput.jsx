@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { SearchLoupe } from "../assets/searchLoupe"
 import { LoadingSpinner } from "./Meaning/loadingSpinner";
 import { addStyleInputError, removeStyleInputError } from "../utils/domManipulation";
+import { DictionaryApiContext } from "../contexts/dictionaryApiProvider";
 
-export const SearchInput = ({fetchApi, isLoading}) => {
+export const SearchInput = () => {
+
   const [searchTerm, setSearchTerm] = useState('');
   const [isEmpty, setIsEmpty] = useState(false)
-
+  
+  const {fetchApi, isLoading} = useContext(DictionaryApiContext)
+  
   const fetchResults = async () => {
       if (!searchTerm.trim()) {
         addStyleInputError()

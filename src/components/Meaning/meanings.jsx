@@ -1,8 +1,12 @@
+import { useContext } from 'react'
 import { ExternalLinkIcon } from '../../assets/externalLinkIcon'
 import { Definition } from './definition'
 import { Title } from './title'
+import { DictionaryApiContext } from '../../contexts/dictionaryApiProvider'
 
-export const Meanings = ({response}) => {
+export const Meanings = () => {
+
+  const { response } = useContext(DictionaryApiContext)
 
   return (
     <div className='w-full'>
