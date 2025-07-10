@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
+import { changeGlobalFont } from '../../utils/domManipulation'
 
 export const DropdownFonts = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -24,7 +25,8 @@ export const DropdownFonts = () => {
   }
 
   const handleFont = (newFont) => {
-    setActualFont(newFont)
+    changeGlobalFont(newFont.class)
+    setActualFont(newFont.name)
     handleOpen()
   }
 
@@ -44,7 +46,7 @@ export const DropdownFonts = () => {
         <div className="absolute right-0 z-10 mt-2 p-4 w-44 origin-top-right rounded-2xl bg-white dark:bg-neutral-500 shadow-[1px_6px_29px_0px_rgba(45,45,45,0.25)] dark:shadow-primary focus:outline-hidden text-body-M font-bold" role="menu" aria-orientation="vertical" aria-labelledby="menu-button">
           <ul className="py-1" role="none">
             {fonts.map((font) => 
-              <li key={font.name} onClick={() => handleFont(font.name)} className={`block px-4 py-2 cursor-pointer ${font.class} hover:text-primary`}>{font.name}</li>
+              <li key={font.name} onClick={() => handleFont(font)} className={`block px-4 py-2 cursor-pointer ${font.class} hover:text-primary`}>{font.name}</li>
             )}
           </ul>
         </div>
