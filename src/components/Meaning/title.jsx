@@ -8,8 +8,8 @@ export const Title = ({word, audio, phonetic}) => {
 
   return (
     <div className='w-full flex justify-between items-center'>
-      <div className='gap-2'>
-        <h1 className='text-L font-bold'>{word}</h1>
+      <div className='flex flex-col'>
+        <h1 className='text-[48px] md:text-L font-bold'>{word}</h1>
         {phonetic && <p className='text-M text-primary'>{phonetic}</p>}
       </div>
       {audio && <div>

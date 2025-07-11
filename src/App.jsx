@@ -9,8 +9,8 @@ function App() {
   const {response, statusError} = useContext(DictionaryApiContext)
 
   return (
-        <div className="flex items-center justify-items-center justify-center mt-12 mx-5">
-          <main className="flex flex-col gap-12 items-center w-lvh sm:mx-10 max-w-[800px]">
+        <div className="flex items-center justify-items-center justify-center mt-12 mx-5 lg:mx-0">
+          <main className="w-full flex flex-col gap-12 items-center max-w-[737px]">
 
             <Header />
             <SearchInput />

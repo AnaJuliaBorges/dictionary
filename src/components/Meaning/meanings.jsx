@@ -21,7 +21,7 @@ export const Meanings = () => {
       ))}
       <div className='mb-[124px]'>
         <div className='flex-1 w-full border-neutral-100 dark:border-neutral-300 border-b mt-10 mb-5' />
-        <div className='flex items-center'>
+        <div className='flex flex-col md:flex-row items-start md:items-center'>
           <span className='text-body-S text-neutral-200 mr-6'>Source(s)</span>
           {response.sources.map((source, index) => (
               <a key={index} href={source} target="_blank" className='mr-4 flex items-center underline gap-2'>
