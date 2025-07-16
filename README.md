@@ -24,7 +24,7 @@ Live demo: https://dictionary-omega-three.vercel.app/
 
 ### Technologies Used
 
-- React
+- React + Vite
 - Tailwind CSS
 - JavaScript
 - [Dictionary API](https://dictionaryapi.dev/) - Free dictionary API
